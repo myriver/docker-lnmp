@@ -1,4 +1,4 @@
-# docker-lnmp Docker一键lnmp环境
+# docker-lnmp，基于Docker的一键lnmp环境
 从零开始，基于Docker容器技术的php开发、生产环境。系统要求(centos7.0以上,最好是minimal安装的纯净系统)
 
 
