@@ -9,8 +9,8 @@
     cd /data/Docker/compose && docker-compose up -d
 
 ### 项目结构
-Docker   docker容器相关目录，里面包含docker-compose文件以及php mysql nginx日志和全部配置文件，按版本号分目录存放，可以根据需要更改配置项
-Project  项目代码文件夹  
+- Docker   docker容器相关目录，里面包含docker-compose文件以及php mysql nginx日志和全部配置文件，按版本号分目录存放，可以根据需要更改配置项
+- Project  项目代码文件夹  
   
 ### License
 
