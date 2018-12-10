@@ -7,10 +7,15 @@
 
 ### 启动命令
     cd /data/Docker/compose && docker-compose up -d
+等待lnmp容器拉取、初始化完毕，即可在浏览器输入服务器ip，查看测试页是否能正常显示 ，nginx 域名绑定配置文件在
+`/data/Docker/soft/nginx/conf/conf.d/vhost.conf`  
+修改vhost配置后执行，`docker restart nginx` 更多docker命令，请查看 https://docs.docker.com/
 
-### 项目结构
-- Docker   docker容器相关目录，里面包含docker-compose文件以及php mysql nginx日志和全部配置文件，按版本号分目录存放，可以根据需要更改配置项
-- Project  项目代码文件夹  
+### 目录结构
+- Docker: docker容器相关目录，里面包含docker-compose文件以及php mysql nginx日志和全部配置文件，按版本号分目录存放，可以根据需要更改配置项
+- Project:  项目代码目录
+
+### 网站配置
   
 ### License
 

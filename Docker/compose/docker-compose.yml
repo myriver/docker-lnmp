@@ -4,51 +4,64 @@ services:
     image: mysql:5.7
     restart: always
     volumes:
-      - /data/Docker/soft/mysql/mysql5.7/data:/var/lib/mysql
-      - /data/Docker/soft/mysql/mysql5.7/logs:/var/log/mysql
-      - /data/Docker/soft/mysql/mysql5.7/conf:/etc/mysql:ro
-      - /etc/localtime:/etc/localtime:ro
+    - ../soft/mysql/mysql5.7/data:/var/lib/mysql
+    - ../soft/mysql/mysql5.7/logs:/var/log/mysql
+    - ../soft/mysql/mysql5.7/conf:/etc/mysql:ro
+    - /etc/localtime:/etc/localtime:ro
     ports:
-      - "3306:3306"
+    - "3306:3306"
     environment:
       MYSQL_USER: root
-      MYSQL_ROOT_PASSWORD: mysqlroot88997#
+      MYSQL_ROOT_PASSWORD: 123456
     networks:
-      - "webnet"
+    - "webnet"
     container_name: mysql5.7
+#  mysql8:
+#    image: mysql:8.0
+#    restart: always
+#    volumes:
+#    - ../soft/mysql/mysql8/data:/var/lib/mysql
+#    - ../soft/mysql/mysql8/logs:/var/log/mysql
+#    - ../soft/mysql/mysql8/conf:/etc/mysql:ro
+#    - /etc/localtime:/etc/localtime:ro
+#    ports:
+#    - "33888:3306"
+#    environment:
+#      MYSQL_USER: root
+#      MYSQL_ROOT_PASSWORD: 123456
+#    networks:
+#    - "webnet"
+#    container_name: mysql8.0
 
   nginx:
     image: nginx:1.10-alpine
     restart: always
     volumes:
-      - /data/Project:/data/www
-      - /data/Docker/soft/nginx/conf:/etc/nginx:ro
-      - /data/Docker/soft/nginx/log:/var/log/nginx
-      - /etc/localtime:/etc/localtime:ro
+    - ../../Project:/data/www
+    - ../soft/nginx/conf:/etc/nginx:ro
+    - ../soft/nginx/log:/var/log/nginx
+    - /etc/localtime:/etc/localtime:ro
     ports:
-      - "80:80"
-      - "443:443"
+    - "80:80"
+    - "443:443"
     networks:
-      - "webnet"
+    - "webnet"
     container_name: nginx
 
   php7.0:
     image: hriver/php-fpm:7.0
     restart: always
     volumes:
-      - /data/Project:/data/www
-      - /data/Docker/soft/php/php7/conf/:/usr/local/etc/php:ro
-      - /data/Docker/soft/php/php7/conf/php-fpm/:/usr/local/etc/php-fpm.d:ro
-      - /data/Docker/soft/php/php7/log:/var/log/php
-      - /etc/localtime:/etc/localtime:ro
+    - ../../Project:/data/www
+    - ../soft/php/php7/conf/:/usr/local/etc/php:ro
+    - ../soft/php/php7/conf/php-fpm/:/usr/local/etc/php-fpm.d:ro
+    - ../soft/php/php7/log:/var/log/php
+    - /etc/localtime:/etc/localtime:ro
     networks:
-      - "webnet"
+    - "webnet"
     container_name: php7.0
 
 
 networks:
   webnet:
     driver: bridge
-
-
-
