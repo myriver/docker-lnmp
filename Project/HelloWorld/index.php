@@ -10,5 +10,5 @@
  * Date: 2018/12/10
  * Time: 16:12
  */
-echo "Helo,River!";
+echo "Hello,River!";
 phpinfo();
